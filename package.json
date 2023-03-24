@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "set:global": "node src/set-global.mjs",
+    "set:radix": "node src/set-radix.mjs",
+    "set:dark": "node src/set-dark.mjs",
+    "set:light": "node src/set-light.mjs"
   },
   "keywords": [],
   "author": "",

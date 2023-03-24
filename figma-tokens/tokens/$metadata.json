@@ -1,0 +1,8 @@
+{
+  "tokenSetOrder": [
+    "global",
+    "radix",
+    "colors-light",
+    "colors-dark"
+  ]
+}
