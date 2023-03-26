@@ -1,12 +1,13 @@
-import * as tokens from './global.mjs';
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-shadow */
+import * as tokens from '../base-tokens.mjs';
 import {
-  copyToFigma,
   createBody,
   createDef,
   createHeadings,
   createItem,
   createUtilities,
-} from './utils/index.mjs';
+} from '../utils/index.mjs';
 
 import { compositions } from './compositions.mjs';
 
@@ -52,7 +53,7 @@ const typography = {
   utilities,
 };
 
-export const globalConfig = {
+export const global = {
   fontSizes,
   spacing,
   sizing,
@@ -67,5 +68,3 @@ export const globalConfig = {
   ...compositions,
   borders,
 };
-
-copyToFigma('global', globalConfig);

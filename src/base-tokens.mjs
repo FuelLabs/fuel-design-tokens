@@ -1,0 +1,463 @@
+export const spacing = {
+  0: '0rem', // 0px,
+  1: '0.25rem', // 4px,
+  2: '0.5rem', // 8px,
+  3: '0.75rem', // 12px,
+  4: '1rem', // 16px,
+  5: '1.25rem', // 20px,
+  6: '1.5rem', // 24px,
+  7: '1.75rem', // 28px,
+  8: '2rem', // 32px,
+  9: '2.25rem', // 36px,
+  10: '2.5rem', // 40px,
+  11: '2.75rem', // 44px,
+  12: '3rem', // 48px,
+  14: '3.5rem', // 56px,
+  16: '4rem', // 64px,
+  20: '5rem', // 80px,
+  24: '6rem', // 96px,
+  28: '7rem', // 112px,
+  32: '8rem', // 128px,
+  36: '9rem', // 144px,
+  40: '10rem', // 160px,
+  44: '11rem', // 176px,
+  48: '12rem', // 192px,
+  52: '13rem', // 208px,
+  56: '14rem', // 224px,
+  60: '15rem', // 240px,
+  64: '16rem', // 256px,
+  72: '18rem', // 288px,
+  80: '20rem', // 320px,
+  96: '24rem', // 384px,
+
+  // pre-defined values
+  xs: '{spacing.3}',
+  sm: '{spacing.4}',
+  md: '{spacing.5}',
+  lg: '{spacing.6}',
+  xl: '{spacing.7}',
+  '2xl': '{spacing.8}',
+};
+
+export const sizing = {
+  xs: '{sizing.8}',
+  sm: '{sizing.9}',
+  md: '{sizing.10}',
+  lg: '{sizing.12}',
+  xl: '{sizing.14}',
+
+  0: '0rem', // 0px,
+  0.5: '0.125rem', // 2px,
+  1: '0.25rem', // 4px,
+  2: '0.5rem', // 8px,
+  3: '0.75rem', // 12px,
+  4: '1rem', // 16px,
+  5: '1.25rem', // 20px,
+  6: '1.5rem', // 24px,
+  7: '1.75rem', // 28px,
+  8: '2rem', // 32px,
+  9: '2.25rem', // 36px,
+  10: '2.5rem', // 40px,
+  11: '2.75rem', // 44px,
+  12: '3rem', // 48px,
+  14: '3.5rem', // 56px,
+  16: '4rem', // 64px,
+  20: '5rem', // 80px,
+  24: '6rem', // 96px,
+  28: '7rem', // 112px,
+  32: '8rem', // 128px,
+  36: '9rem', // 144px,
+  40: '10rem', // 160px,
+  44: '11rem', // 176px,
+  48: '12rem', // 192px,
+  52: '13rem', // 208px,
+  56: '14rem', // 224px,
+  60: '15rem', // 240px,
+  64: '16rem', // 256px,
+  72: '18rem', // 288px,
+  80: '20rem', // 320px,
+  96: '24rem', // 384px,
+  auto: 'auto',
+  px: '1px',
+  '1-2': '50%',
+  '1-3': '33.333333%',
+  '2-3': '66.666667%',
+  '1-4': '25%',
+  '2-4': '50%',
+  '3-4': '75%',
+  '1-5': '20%',
+  '2-5': '40%',
+  '3-5': '60%',
+  '4-5': '80%',
+  '1-6': '16.666667%',
+  '2-6': '33.333333%',
+  '3-6': '50%',
+  '4-6': '66.666667%',
+  '5-6': '83.333333%',
+  '1-12': '8.333333%',
+  '2-12': '16.666667%',
+  '3-12': '25%',
+  '4-12': '33.333333%',
+  '5-12': '41.666667%',
+  '6-12': '50%',
+  '7-12': '58.333333%',
+  '8-12': '66.666667%',
+  '9-12': '75%',
+  '10-12': '83.333333%',
+  '11-12': '91.666667%',
+  full: '100%',
+  screen: '100vw',
+  min: 'min-content',
+  max: 'max-content',
+};
+
+export const fontSizes = {
+  xs: '0.75rem', // 12px,
+  sm: '1rem', // 16px,
+  md: '1.25rem', // 20px,
+  lg: '1.5rem', // 24px,
+  xl: '1.875rem', // 30px,
+  '2xl': '2.25rem', // 36px,
+  '3xl': '3rem', // 48px,
+  '4xl': '3.75rem', // 60px,
+  '5xl': '4.5rem', // 72px,
+  '6xl': '6rem', // 96px,
+  '7xl': '8rem', // 128px,
+
+  // pre-defined values
+  h1: '{fontSizes.7xl}', // 128px,
+  h2: '{fontSizes.4xl}', // 60px,
+  h3: '{fontSizes.3xl}', // 48px,
+  h4: '{fontSizes.2xl}', // 36px,
+  h5: '{fontSizes.xl}', // 30px,
+  h6: '{fontSizes.lg}', // 24px,
+  subtitle: '{fontSizes.lg}', // 24px,
+  body: '{fontSizes.md}', // 20px,
+  caption: '{fontSizes.sm}', // 16px,
+};
+
+export const lineHeights = {
+  none: '100%',
+  tight: '125%',
+  snug: '135%',
+  normal: '150%',
+  relaxed: '165%',
+  loose: '200%',
+  default: '{lineHeights.normal}',
+};
+
+export const letterSpacings = {
+  tighter: '-0.8px', // -0.8px,
+  tight: '-0.4px', // -0.4px,
+  normal: '0', // 0px,
+  wide: '0.4px', // 0.4px,
+  wider: '0.8px', // 0.8px,
+  widest: '1.6px', // 1.6px,
+  default: '{letterSpacings.normal}',
+};
+
+export const borderRadius = {
+  none: '0px', // 0px,
+  sm: '4px',
+  md: '8px',
+  lg: '16px',
+  xl: '24px',
+  '2xl': '32px',
+  '3xl': '48px',
+  full: '9999px',
+  default: '{borderRadius.md}',
+};
+
+export const textCases = {
+  normal: 'none',
+  uppercase: 'uppercase',
+  lowercase: 'lowercase',
+  capitalize: 'capitalize',
+};
+
+export const textDecorations = {
+  none: 'none',
+  underline: 'underline',
+  lineThrough: 'line-through',
+  overline: 'overline',
+};
+
+export const fonts = {
+  body: {
+    cases: ['normal', 'uppercase'],
+    fontFamily: 'Inter',
+    weights: ['Regular', 'Medium', 'Bold'],
+    sizes: {
+      xs: {
+        fontSize: 'xs',
+        lineHeight: 'tight',
+      },
+      sm: {
+        fontSize: 'sm',
+        lineHeight: 'tight',
+      },
+      md: {
+        fontSize: 'md',
+        lineHeight: 'normal',
+      },
+      lg: {
+        fontSize: 'lg',
+        lineHeight: 'normal',
+      },
+      xl: {
+        fontSize: 'xl',
+        lineHeight: 'normal',
+      },
+      caption: {
+        fontSize: 'caption',
+        lineHeight: 'normal',
+      },
+      body: {
+        fontSize: 'body',
+        lineHeight: 'normal',
+      },
+    },
+  },
+  headings: {
+    fontFamily: 'Px Grotesk',
+    weights: ['Light', 'Regular', 'Bold'],
+    sizes: {
+      H1: {
+        fontSize: 'h1',
+        fontWeight: 'Regular',
+        textCase: 'uppercase',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+      H2: {
+        fontSize: 'h2',
+        fontWeight: 'Regular',
+        textCase: 'uppercase',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+      H3: {
+        fontSize: 'h3',
+        fontWeight: 'Bold',
+        textCase: 'normal',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+      H4: {
+        fontSize: 'h4',
+        fontWeight: 'Bold',
+        textCase: 'normal',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+      H5: {
+        fontSize: 'h5',
+        fontWeight: 'Bold',
+        textCase: 'normal',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+      H6: {
+        fontSize: 'h6',
+        fontWeight: 'Bold',
+        textCase: 'normal',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+      subtitle: {
+        fontSize: 'subtitle',
+        fontWeight: 'Regular',
+        textCase: 'normal',
+        letterSpacing: 'tight',
+        lineHeight: 'none',
+      },
+    },
+  },
+  mono: {
+    cases: ['normal', 'uppercase'],
+    fontFamily: 'Px Grotesk Mono',
+    weights: ['Regular', 'Medium', 'Bold'],
+    sizes: {
+      xs: {
+        fontSize: 'xs',
+        lineHeight: 'normal',
+      },
+      sm: {
+        fontSize: 'sm',
+        lineHeight: 'normal',
+      },
+      md: {
+        fontSize: 'md',
+        lineHeight: 'normal',
+      },
+      lg: {
+        fontSize: 'lg',
+        lineHeight: 'normal',
+      },
+      xl: {
+        fontSize: 'xl',
+        lineHeight: 'normal',
+      },
+    },
+  },
+  display: {
+    cases: ['normal', 'uppercase'],
+    fontFamily: 'Px Grotesk',
+    weights: ['Regular', 'Medium', 'Bold'],
+    sizes: {
+      xs: {
+        fontSize: 'xs',
+        lineHeight: 'normal',
+      },
+      sm: {
+        fontSize: 'sm',
+        lineHeight: 'normal',
+      },
+      md: {
+        fontSize: 'md',
+        lineHeight: 'normal',
+      },
+      lg: {
+        fontSize: 'lg',
+        lineHeight: 'normal',
+      },
+      xl: {
+        fontSize: 'xl',
+        lineHeight: 'normal',
+      },
+    },
+  },
+};
+
+export const utilities = {
+  button: {
+    fontFamily: 'display',
+    sizes: {
+      xs: {
+        fontSize: 'xs',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'uppercase',
+        textDecoration: 'none',
+      },
+      sm: {
+        fontSize: 'sm',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+      md: {
+        fontSize: 'md',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+      lg: {
+        fontSize: 'lg',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+      xl: {
+        fontSize: 'xl',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+    },
+  },
+  input: {
+    fontFamily: 'display',
+    sizes: {
+      sm: {
+        fontSize: 'sm',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+      md: {
+        fontSize: 'md',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+      lg: {
+        fontSize: 'lg',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+      xl: {
+        fontSize: 'xl',
+        fontWeight: 'Regular',
+        lineHeight: 'default',
+        letterSpacing: 'wide',
+        textCase: 'normal',
+        textDecoration: 'none',
+      },
+    },
+  },
+};
+
+export const borders = {
+  default: {
+    color: '{border}',
+    width: '1px',
+    style: 'solid',
+  },
+  divider: {
+    color: '{intents.base.6}',
+    width: '1px',
+    style: 'dotted',
+  },
+  base: {
+    color: '{intents.base.9}',
+    width: '2px',
+    style: 'solid',
+  },
+  primary: {
+    color: '{intents.primary.9}',
+    width: '2px',
+    style: 'solid',
+  },
+  secondary: {
+    color: '{intents.secondary.9}',
+    width: '2px',
+    style: 'solid',
+  },
+  info: {
+    color: '{intents.info.9}',
+    width: '2px',
+    style: 'solid',
+  },
+  warning: {
+    color: '{intents.warning.9}',
+    width: '2px',
+    style: 'solid',
+  },
+  success: {
+    color: '{intents.success.9}',
+    width: '2px',
+    style: 'solid',
+  },
+  error: {
+    color: '{intents.error.9}',
+    width: '2px',
+    style: 'solid',
+  },
+};

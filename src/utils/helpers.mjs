@@ -24,7 +24,7 @@ export function createDef(
   return Object.entries(obj).reduce((obj, [key, value]) => {
     obj[getKey(key)] = {
       value: getValue(value),
-      type: type,
+      type,
     };
     return obj;
   }, {});

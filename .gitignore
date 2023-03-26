@@ -31,7 +31,6 @@ coverage
 # next.js
 .next/
 out/
-build
 dist
 dist-ssr
 

@@ -18,12 +18,12 @@ export function createTypographValue({
       textDecoration: `{textDecorations.${textDecoration}}`,
     },
     type: `typography`,
-  }
+  };
 }
 
 export function createBody(fonts) {
   return Object.entries(fonts)
-    .filter(([key]) => key === "body")
+    .filter(([key]) => key === 'body')
     .reduce((obj, [key, font]) => {
       return {
         ...obj,
@@ -41,38 +41,38 @@ export function createBody(fonts) {
                       fontWeight: `${key}.${weight}`,
                       lineHeight: sizeItem.lineHeight,
                       fontSize: size,
-                      letterSpacing: "default",
-                      textCase: textCase,
-                      textDecoration: "none",
+                      letterSpacing: 'default',
+                      textCase,
+                      textDecoration: 'none',
                     }),
-                  }
+                  };
                 }, {}),
-              }
+              };
             }, {}),
-          }
+          };
         }, {}),
-      }
-    }, {})
+      };
+    }, {});
 }
 
 export function createHeadings(fonts) {
   const selected = Object.entries(fonts).filter(
-    ([key]) => key === "headings",
-  )[0]
+    ([key]) => key === 'headings'
+  )[0];
   return Object.entries(selected[1].sizes).reduce((obj, [key, size]) => {
     return {
       ...obj,
       [key]: createTypographValue({
-        fontFamily: "headings",
+        fontFamily: 'headings',
         fontWeight: `headings.${size.fontWeight}`,
         lineHeight: size.lineHeight,
         fontSize: size.fontSize,
         letterSpacing: size.letterSpacing,
         textCase: size.textCase,
-        textDecoration: "none",
+        textDecoration: 'none',
       }),
-    }
-  }, {})
+    };
+  }, {});
 }
 
 export function createUtilities(utilities) {
@@ -87,8 +87,8 @@ export function createUtilities(utilities) {
             fontFamily: utility.fontFamily,
             fontWeight: `${utility.fontFamily}.${utility.sizes[size].fontWeight}`,
           }),
-        }
+        };
       }, {}),
-    }
-  }, {})
+    };
+  }, {});
 }
