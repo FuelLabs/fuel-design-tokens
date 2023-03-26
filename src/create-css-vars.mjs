@@ -11,7 +11,7 @@ function readJSON(filepath) {
 }
 
 function parsePath(obj, set) {
-  return Object.entries(obj).reduce((acc, [key, value]) => {
+  const res = Object.entries(obj).reduce((acc, [key, value]) => {
     if (key.includes(' / ')) {
       key = key.replace(' / ', '.');
     }
@@ -29,6 +29,9 @@ function parsePath(obj, set) {
     }
     return acc;
   }, obj);
+
+  delete res['component-wrapper'];
+  return res;
 }
 
 function addCSSVariables(obj, vars) {
@@ -97,14 +100,33 @@ function renameKey(key) {
   }
   const text = val.match(/^(body|headings|utilities)-/);
   if (text) {
-    val = val.replace(text[1], `ts`);
+    val = val.replace(text[1], `textStyles`);
   }
-  const scale = val.match(/(\w+)(-)(\d+)$/);
+  const scale = val.match(/(\b(?!spacing\b|sizing\b)\w+\b)(-)(\d+)$/);
   if (scale) {
     val = val.replace(scale[0], `${scale[1]}${scale[3]}`);
   }
   if (val.includes('Xl')) {
     val = val.replace('Xl', 'xl');
+  }
+  val = val
+    .replace('borderRadius', 'radii')
+    .replace('fontFamilies', 'fonts')
+    .replace('sizing', 'sizes')
+    .replace('spacing', 'space')
+    .replace('horizontalPadding', 'px')
+    .replace('verticalPadding', 'py')
+    .replace('fill', 'bg');
+
+  const colorType = val.match(/(\w+)-(dark|light)(\d+)/);
+  if (colorType) {
+    const color = colorType[1];
+    const theme = colorType[2];
+    const num = colorType[3];
+    val = val.replace(
+      colorType[0],
+      `${color}${theme === 'dark' ? _.capitalize(theme) : ''}${num}`
+    );
   }
   val = `--f-${val}`;
   return val;
@@ -119,7 +141,8 @@ function finalParse(obj) {
         const startIdx = value.indexOf('{');
         const endIdx = value.indexOf('}');
         const path = value.slice(startIdx + 1, endIdx);
-        value = `var(${renameKey(path)})`;
+        const newValue = `var(${renameKey(path)})`;
+        value = value.replace(value.slice(startIdx, endIdx + 1), newValue);
       }
       return [key, value];
     })
@@ -133,8 +156,11 @@ function finalParse(obj) {
     // transform pixel ins rems
     .map(([key, value]) => {
       if (value.includes('px')) {
-        value = Number(value.replace('px', ''));
-        value = `${value / 16}rem`;
+        const num = value.match(/(\d+)px/);
+        const startIdx = value.indexOf(num[0]);
+        const endIdx = startIdx + num[0].length;
+        const newValue = `${num[1] / 16}rem`;
+        value = value.replace(value.slice(startIdx, endIdx), newValue);
       }
       return [key, value];
     })
@@ -148,11 +174,46 @@ function finalParse(obj) {
 }
 
 function createCSSFile(obj) {
-  const entries = Object.entries(obj).map(([key, value]) => {
-    return `${key}: ${value};`;
-  });
+  const entries = Object.entries(obj).map(
+    ([key, value]) => `${key}: ${value};`
+  );
   const values = entries.map((v) => `\t${v}`).join('\n');
   return `:root {\n${values}\n}`;
+}
+
+function findOriginalValue(val, obj) {
+  const path = val.replace('var(--f-', '').replace(')', '');
+  const newVal = _.get(obj, `--f-${path}`);
+  if (newVal?.startsWith('var(')) {
+    return findOriginalValue(newVal, obj);
+  }
+  return newVal;
+}
+
+function createJSONFile(obj) {
+  const res = {
+    colors: {},
+    space: {},
+    fontSizes: {},
+    fonts: {},
+    fontWeights: {},
+    lineHeights: {},
+    letterSpacings: {},
+    sizes: {},
+    radii: {},
+  };
+  Object.entries(obj).forEach(([key, value]) => {
+    key = key.replace('--f-', '');
+    _.set(res, key.split('-'), value);
+  });
+  Object.entries(obj).forEach(([key, value]) => {
+    if (value.startsWith('var(')) {
+      const val = findOriginalValue(value, obj);
+      key = key.replace('--f-', '');
+      _.set(res, key.split('-'), val);
+    }
+  });
+  return JSON.stringify(res, null, 2);
 }
 
 async function main() {
@@ -172,14 +233,17 @@ async function main() {
   const final = finalParse(CSSparsed);
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
   const buildDir = path.join(__dirname, '../build');
-  const filepath = path.join(buildDir, '/css-vars.css');
+  const cssFilepath = path.join(buildDir, '/css-vars.css');
+  const jsonFilepath = path.join(buildDir, '/tokens-raw.json');
   const cssFile = createCSSFile(final);
+  const jsonFile = createJSONFile(final);
 
   if (fs.existsSync(buildDir)) {
     fs.rmSync(path.join(buildDir), { recursive: true });
   }
   fs.mkdirSync(buildDir);
-  fs.writeFileSync(filepath, cssFile, 'utf-8');
+  fs.writeFileSync(cssFilepath, cssFile, 'utf-8');
+  fs.writeFileSync(jsonFilepath, jsonFile, 'utf-8');
 }
 
 main();
