@@ -214,7 +214,7 @@
       "primary": {
         "bg": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{brand}"
         },
         "border": {
           "type": "color",
@@ -222,11 +222,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{intents.primary.1}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{intents.primary.1}"
+          "value": "{black}"
         },
         "placeholder": {
           "type": "color",
@@ -234,7 +234,16 @@
         },
         "hover-bg": {
           "type": "color",
-          "value": "{intents.primary.11}"
+          "value": "{brand}",
+          "$extensions": {
+            "studio.tokens": {
+              "modify": {
+                "type": "darken",
+                "value": "0.2",
+                "space": "lch"
+              }
+            }
+          }
         },
         "hover-border": {
           "type": "color",
@@ -242,15 +251,23 @@
         },
         "hover-color": {
           "type": "color",
-          "value": "{intents.primary.1}"
+          "value": "{black}"
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.primary.1}"
+          "value": "{black}"
         },
         "hover-placeholder": {
           "type": "color",
           "value": "{intents.primary.10}"
+        },
+        "disabled-text": {
+          "value": "{green / dark.8}",
+          "type": "color"
+        },
+        "disabled-bg": {
+          "value": "{green / light.5}",
+          "type": "color"
         }
       },
       "secondary": {
@@ -518,11 +535,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{intents.primary.12}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{black}"
         },
         "placeholder": {
           "type": "color",
@@ -538,11 +555,11 @@
         },
         "hover-color": {
           "type": "color",
-          "value": "{intents.primary.12}"
+          "value": "{black}"
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{black}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -814,11 +831,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{intents.primary.10}"
+          "value": "black"
         },
         "placeholder": {
           "type": "color",
@@ -826,7 +843,7 @@
         },
         "hover-bg": {
           "type": "color",
-          "value": "{body-bg}"
+          "value": "{green / dark.12}"
         },
         "hover-border": {
           "type": "color",
@@ -838,7 +855,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.primary.10}"
+          "value": "black"
         },
         "hover-placeholder": {
           "type": "color",

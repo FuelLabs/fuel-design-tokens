@@ -216,11 +216,14 @@ function createJSONFile(obj) {
   return JSON.stringify(res, null, 2);
 }
 
+const BUILD_DIR = '../build';
+const TOKENS_DIR = '../tokens';
+
 async function main() {
-  const global = readJSON('../figma-tokens/tokens/global.json');
-  const light = readJSON('../figma-tokens/tokens/colors-light.json');
-  const dark = readJSON('../figma-tokens/tokens/colors-dark.json');
-  const radix = readJSON('../figma-tokens/tokens/radix.json');
+  const global = readJSON(`${TOKENS_DIR}/global.json`);
+  const light = readJSON(`${TOKENS_DIR}/colors-light.json`);
+  const dark = readJSON(`${TOKENS_DIR}/colors-dark.json`);
+  const radix = readJSON(`${TOKENS_DIR}/radix.json`);
   const withPaths = parsePath({
     global,
     light,
@@ -232,7 +235,7 @@ async function main() {
   const CSSparsed = adjustThemeOnVars(CSSVariables);
   const final = finalParse(CSSparsed);
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-  const buildDir = path.join(__dirname, '../build');
+  const buildDir = path.join(__dirname, BUILD_DIR);
   const cssFilepath = path.join(buildDir, '/css-vars.css');
   const jsonFilepath = path.join(buildDir, '/tokens-raw.json');
   const cssFile = createCSSFile(final);

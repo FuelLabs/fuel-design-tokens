@@ -1,8 +1,8 @@
 {
-  "name": "tokens",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "fuel-design-tokens",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Scripts used to generate fuel-ui design tokens",
   "scripts": {
     "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "pnpm lint:check --fix",
@@ -13,11 +13,10 @@
     "copy-set:global": "node src/copy-set.mjs --global",
     "copy-set:radix": "node src/copy-set.mjs --radix",
     "copy-set:dark": "node src/copy-set.mjs --dark",
-    "copy-set:light": "node src/copy-set.mjs --light"
+    "copy-set:light": "node src/copy-set.mjs --light",
+    "build": "node ./src/create-css-vars.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "Apache-2",
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
     "chroma-js": "^2.4.2",

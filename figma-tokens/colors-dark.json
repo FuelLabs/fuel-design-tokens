@@ -251,6 +251,10 @@
         "hover-placeholder": {
           "type": "color",
           "value": "{intents.primary.10}"
+        },
+        "disabled-bg": {
+          "value": "{green / dark.6}",
+          "type": "color"
         }
       },
       "secondary": {
